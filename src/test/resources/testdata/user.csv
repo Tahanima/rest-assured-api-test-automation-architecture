@@ -1,0 +1,3 @@
+Test Case ID,Test Case Description,ID,User Name,Password,Outcome
+TC-1,Successful retrieval of users should return a 200 status code,,,,200
+TC-2,Successful creation of user should return a 200 status code and correct response,1108,Mary,StrongPassword!!,200
