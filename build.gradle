@@ -13,7 +13,7 @@ repositories {
 dependencies {
     implementation 'org.aeonbits.owner:owner:1.0.12'
     implementation 'io.rest-assured:rest-assured:5.3.2'
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.3'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.0'
     implementation 'com.univocity:univocity-parsers:2.9.1'
     implementation 'org.slf4j:slf4j-api:2.0.9'
     implementation 'io.qameta.allure:allure-junit-platform:2.24.0'
