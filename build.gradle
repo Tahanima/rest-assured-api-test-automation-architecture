@@ -27,7 +27,7 @@ dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.2')
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
     testImplementation 'org.slf4j:slf4j-simple:2.0.12'
-    testImplementation 'ch.qos.logback:logback-classic:1.5.2'
+    testImplementation 'ch.qos.logback:logback-classic:1.5.3'
 }
 
 test {
