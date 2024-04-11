@@ -1,0 +1,1 @@
+[{"values":["Linux"],"name":"Platform"},{"values":["6.5.0-1017-azure"],"name":"OS Version"},{"values":["https://fakerestapi.azurewebsites.net"],"name":"API Base URI"},{"values":["/api/v1"],"name":"API Base Path"}]
