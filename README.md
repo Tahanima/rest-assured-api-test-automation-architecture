@@ -13,7 +13,7 @@ git clone https://github.com/[your_username]/rest-assured-api-test-automation-ar
 ```
 3. Import the project in [IntelliJ IDEA](https://www.jetbrains.com/idea/download/).
 4. Make your desired changes.
-5. Use IntelliJ IDEA to run your desired tests. Alternatively, you can use the terminal to run the tests, for example `./gradlew test`.
+5. Use IntelliJ IDEA to run your desired tests. Alternatively, you can use the terminal to run the tests, for example `./gradlew clean test`.
 6. Build and browse the allure report using
 ```
 ./gradlew allureServe
@@ -22,7 +22,7 @@ git clone https://github.com/[your_username]/rest-assured-api-test-automation-ar
 ## Languages and Frameworks
 
 The project uses the following:
-- *[Java 11](https://openjdk.java.net/projects/jdk/11/)* as the programming language.
+- *[Java](https://openjdk.java.net/projects/jdk/)* as the programming language.
 - *[REST Assured](https://rest-assured.io/)* as the HTTP client.
 - *[Jackson](https://github.com/FasterXML/jackson)* as the JSON parser.
 - *[Univocity Parsers](https://www.univocity.com/pages/univocity_parsers_tutorial)* to parse and handle CSV files.
@@ -38,8 +38,9 @@ The project uses the following:
 The project is structured as follows:
 
 ```bash
-📦 rest-assured-api-test-automation-architecture
+📦 
 ├─ .github
+│  ├─ dependabot.yml
 │  └─ workflows
 │     └─ test-execution.yml
 ├─ .gitignore
@@ -64,13 +65,13 @@ The project is structured as follows:
    │  │           ├─ config
    │  │           │  ├─ Configuration.java
    │  │           │  └─ ConfigurationManager.java
-   │  │           ├─ dto
-   │  │           │  ├─ BaseDto.java
-   │  │           │  └─ UserDto.java
    │  │           ├─ model
    │  │           │  └─ User.java
    │  │           ├─ report
    │  │           │  └─ AllureManager.java
+   │  │           ├─ testdata
+   │  │           │  ├─ BaseTestData.java
+   │  │           │  └─ UserTestData.java
    │  │           └─ util
    │  │              ├─ Endpoint.java
    │  │              └─ RequestSpec.java
@@ -82,15 +83,14 @@ The project is structured as follows:
       │  └─ io
       │     └─ github
       │        └─ tahanima
-      │           ├─ annotation
-      │           │  └─ DataSource.java
       │           ├─ e2e
-      │           │  ├─ BaseE2ETest.java
-      │           │  └─ UserE2ETest.java
+      │           │  ├─ BaseTest.java
+      │           │  └─ UserTest.java
       │           └─ util
-      │              ├─ CsvToDtoMapper.java
-      │              ├─ DataArgumentsProvider.java
-      │              └─ JsonFormatter.java
+      │              ├─ JsonFormatter.java
+      │              ├─ TestArgumentsProvider.java
+      │              ├─ TestDataCsvLoader.java
+      │              └─ TestDataSource.java
       └─ resources
          └─ testdata
             └─ user.csv
