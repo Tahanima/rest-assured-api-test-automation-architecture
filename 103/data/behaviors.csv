@@ -1,0 +1,3 @@
+"BROKEN","EPIC","FAILED","FEATURE","PASSED","SKIPPED","STORY","UNKNOWN"
+"0","","0","User API Tests","1","0","Successful creation of user should return a 200 status code and correct response.","0"
+"0","","0","User API Tests","1","0","Successful retrieval of users should return a 200 status code.","0"
