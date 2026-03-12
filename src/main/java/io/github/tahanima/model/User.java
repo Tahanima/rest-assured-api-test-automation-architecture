@@ -16,9 +16,12 @@ import lombok.extern.jackson.Jacksonized;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public final class User {
 
-    @JsonProperty private int id;
+    @JsonProperty
+    private int id;
 
-    @JsonProperty private String userName;
+    @JsonProperty
+    private String userName;
 
-    @JsonProperty private String password;
+    @JsonProperty
+    private String password;
 }

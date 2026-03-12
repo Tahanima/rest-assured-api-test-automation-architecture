@@ -11,18 +11,17 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public final class JsonFormatter {
+    private static final ObjectMapper MAPPER =
+            new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
 
     private JsonFormatter() {}
 
     public static String prettify(Object o) {
-        ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
-
         try {
-            return mapper.writeValueAsString(o);
+            return MAPPER.writeValueAsString(o);
         } catch (JsonProcessingException e) {
             log.error("Couldn't format the given object.", e);
+            throw new RuntimeException(e);
         }
-
-        throw new NullPointerException();
     }
 }

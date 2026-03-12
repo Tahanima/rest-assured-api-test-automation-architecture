@@ -13,17 +13,19 @@ public final class RequestSpec {
 
     private RequestSpec() {}
 
-    public static RequestSpecification setInitialState() {
+    private static RequestSpecBuilder getBaseSpecBuilder() {
         return new RequestSpecBuilder()
                 .setBaseUri(config().apiBaseUri())
                 .setBasePath(config().apiBasePath())
-                .setRelaxedHTTPSValidation()
-                .build();
+                .setRelaxedHTTPSValidation();
+    }
+
+    public static RequestSpecification setInitialState() {
+        return getBaseSpecBuilder().build();
     }
 
     public static RequestSpecification setBody(Object payload) {
-        return new RequestSpecBuilder()
-                .addRequestSpecification(setInitialState())
+        return getBaseSpecBuilder()
                 .setAccept(ContentType.JSON)
                 .setContentType(ContentType.JSON)
                 .setBody(payload)

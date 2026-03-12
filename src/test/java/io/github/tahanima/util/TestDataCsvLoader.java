@@ -3,7 +3,7 @@ package io.github.tahanima.util;
 import com.univocity.parsers.csv.CsvParserSettings;
 import com.univocity.parsers.csv.CsvRoutines;
 
-import io.github.tahanima.dto.BaseDto;
+import io.github.tahanima.testdata.BaseTestData;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,11 +18,11 @@ import java.util.ArrayList;
  * @author tahanima
  */
 @Slf4j
-public final class CsvToDtoMapper {
+public final class TestDataCsvLoader {
 
-    private CsvToDtoMapper() {}
+    private TestDataCsvLoader() {}
 
-    public static Object[] map(Class<? extends BaseDto> clazz, String file, String id) {
+    public static Object[] map(Class<? extends BaseTestData> clazz, String file, String id) {
         CsvParserSettings settings = new CsvParserSettings();
 
         settings.getFormat().setLineSeparator("\n");
@@ -32,7 +32,7 @@ public final class CsvToDtoMapper {
 
         try (Reader reader =
                      new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8)) {
-            ArrayList<BaseDto> testData = new ArrayList<>();
+            ArrayList<BaseTestData> testData = new ArrayList<>();
 
             routines.iterate(clazz, reader)
                     .forEach(

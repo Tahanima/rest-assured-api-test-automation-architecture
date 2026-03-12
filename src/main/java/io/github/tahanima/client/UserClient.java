@@ -16,22 +16,37 @@ public final class UserClient {
     private UserClient() {}
 
     public static Response getAllUsers() {
-        return given().spec(setInitialState()).when().get(USER);
+        return given()
+                .spec(setInitialState())
+                .when()
+                .get(USER);
     }
 
     public static Response createUser(User user) {
-        return given().spec(setBody(user)).when().post(USER);
+        return given()
+                .spec(setBody(user))
+                .when()
+                .post(USER);
     }
 
     public static Response getUserById(int id) {
-        return given().spec(setInitialState()).when().get(USER, id);
+        return given()
+                .spec(setInitialState())
+                .when()
+                .get(USER, id);
     }
 
     public static Response updateUserById(User user, int id) {
-        return given().spec(setBody(user)).when().put(USER, id);
+        return given()
+                .spec(setBody(user))
+                .when()
+                .put(USER, id);
     }
 
     public static Response deleteUserById(int id) {
-        return given().spec(setInitialState()).when().delete(USER, id);
+        return given()
+                .spec(setInitialState())
+                .when()
+                .delete(USER, id);
     }
 }

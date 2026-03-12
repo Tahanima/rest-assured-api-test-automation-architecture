@@ -1,7 +1,6 @@
-package io.github.tahanima.annotation;
+package io.github.tahanima.util;
 
-import io.github.tahanima.dto.BaseDto;
-import io.github.tahanima.util.DataArgumentsProvider;
+import io.github.tahanima.testdata.BaseTestData;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ArgumentsSource;
@@ -14,13 +13,13 @@ import java.lang.annotation.*;
 @Documented
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-@ArgumentsSource(DataArgumentsProvider.class)
+@ArgumentsSource(TestArgumentsProvider.class)
 @ParameterizedTest
-public @interface DataSource {
+public @interface TestDataSource {
 
     String id();
 
     String file();
 
-    Class<? extends BaseDto> clazz();
+    Class<? extends BaseTestData> clazz();
 }

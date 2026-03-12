@@ -8,8 +8,8 @@ import static org.apache.http.HttpStatus.SC_OK;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import io.github.tahanima.annotation.DataSource;
-import io.github.tahanima.dto.UserDto;
+import io.github.tahanima.util.TestDataSource;
+import io.github.tahanima.testdata.UserTestData;
 import io.github.tahanima.model.User;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Feature;
@@ -20,13 +20,13 @@ import io.restassured.response.Response;
  * @author tahanima
  */
 @Feature("User API Tests")
-public class UserE2ETest extends BaseE2ETest {
+public class UserTest extends BaseTest {
 
     private static final String FILE = "user.csv";
 
     @Story("Successful retrieval of users should return a 200 status code.")
-    @DataSource(id = "TC-1", file = FILE, clazz = UserDto.class)
-    void testSuccessfulRetrievalOfUsersShouldReturnA200StatusCode(UserDto data) {
+    @TestDataSource(id = "TC-1", file = FILE, clazz = UserTestData.class)
+    void testSuccessfulRetrievalOfUsersShouldReturnA200StatusCode(UserTestData data) {
         Response response = getAllUsers();
 
         Allure.attachment("Response Payload", response.asPrettyString());
@@ -35,8 +35,8 @@ public class UserE2ETest extends BaseE2ETest {
     }
 
     @Story("Successful creation of user should return a 200 status code and correct response.")
-    @DataSource(id = "TC-2", file = FILE, clazz = UserDto.class)
-    void testSuccessfulCreationOfUsersShouldReturnA200StatusCodeAndCorrectResponse(UserDto data) {
+    @TestDataSource(id = "TC-2", file = FILE, clazz = UserTestData.class)
+    void testSuccessfulCreationOfUsersShouldReturnA200StatusCodeAndCorrectResponse(UserTestData data) {
         User user =
                 User.builder()
                         .id(Integer.parseInt(data.getId().trim()))

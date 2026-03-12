@@ -10,7 +10,7 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
  * @author tahanima
  */
 @TestInstance(Lifecycle.PER_CLASS)
-public abstract class BaseE2ETest {
+public abstract class BaseTest {
 
     @BeforeAll
     protected void setupAll() {
